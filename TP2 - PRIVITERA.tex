@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{graphicx}           % Required for inserting images
+\usepackage[spanish]{babel}     % Setea idioma del doc Español
+\usepackage{hyperref}           % Incluye los links
+
+
+\title{\textbf{Trabajo Práctico 2 - Redes de las Computadoras I}}
+\author{Valentino Privitera}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+\section{Introducción}
+En este archivo se documentara las practicas de laboratorios realizadas en la asignatura Redes de las Computadoras I. La misma consiste en simular con el software Packet Tracer tres tipos de escenarios distintos: la conexión de dos computadoras mediante cable por red; 2o escenario y tercer escenario blabla
+
+
+\section{Conexión de dos dispositivos por Red}
+
+Se comienzan las practicas de laboratorio con un escenario muy típico y que representa una conexión mundana entre dos dispositivos como lo son las computadoras personales. Este escenario comprende la conexión de dos computadoras mediante un cable de cobre cruzado por red. \\
+
+{\setlength{\parindent}{1pt}En Packet Tracer, seleccionamos \textbf{end-devices} y arrastramos 2 PC a la pantalla; además, vamos a conectarlos mediante un cable de cobre cruzado, el cual esta en \textbf{connections}, Copper Cross-Over. Se observa que cuando las conectamos efectivamente, aparecen dos triángulos verdes, que indican que las NIC están operativas y la conexión física tuvo éxito. A continuación vamos a hacer un \textbf{command prompt} en cada uno de los equipos y vamos a ingresar \textit{ipconfig /all} para verificar las especificaciones de cada tarjeta de red, su NIC, y demás adresses para ver que efectivamente cada una tiene la suya asignada. Vemos que: 
+
+\begin{itemize}
+    \item MAC de la PC1: 000C.CF40.25C8
+    \item MAC de la PC2: 000D.BDE7.BA3B
+\end{itemize} 
+
+Ahora que hicimos la conexión física, debemos verificar la conexión lógica. Usando el comando \textit{ipconfig 192.168.0.1 255.255.255.0} podemos configurar la IP y mascara de cada equipo con esos valores como argumento. Si volvemos a introducir \textit{ipconfig /all} en cada equipo veremos los valores de IP y mascara actualizados. \\
+
+A continuación vamos a salir de las configuraciones de los equipos, para dirigirnos al inicio y presionar la letra \textit{p}, la cual nos permite agregar un PDU Simple, osea una unidad de información, para verificar el envío de paquetes entre estos dos equipos. Si nos ponemos en modo \textbf{simulation}, podemos ver como se recrea el envío y recibimiento del paquete. Después de volver al modo \textbf{realtime}, vamos a la PC1 para marcar el comando \textit{ping 192.168.0.2}. La salida indica que la herramienta mando un mensaje ping, un tipo de paquete IP, y que la
+ PC2 le respondió con otro, indicando que la transmisión fue exitosa cuatro veces. \\
+
+ Por último, colocamos en la consola de PC1 el comando \textit{arp -a} y obtendremos una salida que indica que la PC1 aprendió por algún mecanismo la dirección fısica de la PC2. Podemos constatar que algo similar ocurrió en la PC2. Esta información esta mantenida en una cache, por eso indica que es del tipo dynamic, y será de utilidad para posteriores solicitudes entre ambos dispositivos.}
+
+
+\subsection{Conexión de una PC y un Server}
+
+Ahora veremos el mismo ejemplo aplicado a una conexión mucho mas común, como es la de una PC y un servidor. Primero, agregamos un equipo PC y un Server PT; ahora los conectamos con un cable de cobre cruzado y procedemos a examinar las redes físicas de cada dispositivo:
+
+\begin{itemize}
+    \item MAC de la PC1: 0050.0FA9.2CB3
+    \item MAC del Server: 00D0.BAA1.8361
+\end{itemize}
+
+{\setlength{\parindent}{1pt}Ahora procedemos a asignarles direcciones lógicas IP y mascaras de red, mediante el comando \textit{ipconfig} en ambos dispositivos. Y para terminar la experiencia con estos dispositivos conectados, vamos a hacer una solicitud al servidor para poder acceder a una página web desde la PC1. Para esta última tarea se usó el archivo.pkt que nos facilitó el profesor y se hizo la consulta al servidor desde ahi; efectivamente se pudo realizar el envio y muestra de la pagina web \textit{www.packet.pkt} y además se pudo revisar como ahora ambos dispositivos guardan en su memoria las direcciones mutuas, para consultas posteriores.}
+
+
+\section{Extendiendo la Red}
+
+Ahora vamos a ampliar la red agregando 2 computadoras mas, sin embargo esto no se puede hacer de forma directa. Necesitamos un dispositivo que distribuya la señal, y este es el \textbf{hub}. Se recreó el esquema de conexiones en Packet Tracer, sin embargo terminamos usando el mismo archivo que nos dejo el profesor para poder verificar que los ping y las consultas al servidor funcionaban. A continuación, una lista de cada dispositivo y su dirección física y lógica:  \\
+{\setlength{\parindent}{1pt}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Dispositivos &MAC  &IP \\
+    \hline
+    PC1  &0010.1183.9B19  &192.168.0.1 \\
+    \hline
+    PC2  &000C.CF40.25C8  &192.168.0.2 \\
+    \hline
+    PC3  &00D0.FF57.95EA  &192.168.0.3 \\
+    \hline
+    HUB  & - & - \\
+    \hline
+    SERVER &0002.17D4.871E &192.168.0.100 \\
+    \hline
+    \end{tabular} \\ \\
+
+Para esta practica de laboratorio, pudimos averiguar solamente la IP del servidor al que estaban conectadas las pc mediante el prompt \textit{ipconfig /all}, sin embargo no se pudo encontrar información adicional. Todos los dispositivos PC estaban configurados en conexión \textbf{DHCP}.} \\
+
+\section{Dominios de colisión}
+
+Por ultimo, para terminar con esta practica de laboratorio, se analiza un escenario mucho mas complejo en el cual tenemos dos secciones de computadoras, conectadas cada una a \textbf{hubs satélites}, que a su vez se comunican con un \textit{\textbf{hub central}}, el cual es el encargado de repartir las señales a todo el dominio. Se recreó el dominio propuesto en Packet Tracer y se determinó que solo hay un dominio de colisión. \\
+
+{\setlength{\parindent}{1pt}Un \textbf{dominio de colisión} es un área de la red donde los datos pueden colisionar. En redes que utilizan hubs, \textbf{todo lo que está conectado a un hub pertenece al mismo dominio de colisión}. En este caso, todos los dispositivos conectados a Hub1, Hub2 y Hub0 están dentro de un solo dominio de colisión, y esto es porque los hubs operan en la capa física del modelo OSI, y no separan dominios de colisión como lo haría un switch o un router.}
+
+\end{document}
