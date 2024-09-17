@@ -14,11 +14,24 @@
 %-------------------------------------------------------------------%
 
 \section{Introducción a Redes de las Computadoras}
-En el siguiente documento se procederá a realizar el primer trabajo practico de la asignatura Redes de las Computadoras I. El mismo esta redactado en {\LaTeX}, y será el puntapié inicial para desarrollar la maravillosa teoría de redes.
+
+Una \textbf{red de computadoras} es la tecnología que permite que un conjunto de dispositivos interconectados que pueden comunicarse y compartir recursos (paquetes) entre sí. Estos dispositivos pueden ser computadoras, servidores, impresoras, smartphones, raspberrys, etc. Los mismos se conectan a través de medios físicos (como cables) o inalámbricos (como Wi-Fi) y se comunican siguiendo un protocolo de red, el equivalente a un lenguaje humano.
 \\ \\
-Una \textbf{red de computadoras} es un conjunto de dispositivos interconectados que pueden comunicarse y compartir recursos (paquetes) entre sí. Estos dispositivos pueden ser computadoras o laptops, servidores, impresoras, smartphones, raspberrys, etc. Estos dispositivos se conectan a través de medios físicos (como cables) o inalámbricos (como Wi-Fi).
-\\ \\
-Los componentes clave de una red son los \textbf{dispositivos}, los \textbf{medios de transmisión}, los \textbf{protocolos de red} y los recursos que se comparten a través de estos, como un archivo por ejemplo; a lo largo del curso entraremos en mas detalles. Existen tres tipos principales de redes, y estas se clasifican en base a su \textbf{rango de alcance}. Tenemos: 
+Un \textbf{protocolo de red} es un conjunto de reglas y convenciones que permiten la comunicación entre dispositivos en una red. Estos protocolos definen cómo se envían, reciben y procesan los datos, asegurando que los dispositivos puedan intercambiar información de manera efectiva, independientemente de sus diferencias internas. Los principales son: 
+
+\begin{itemize}
+    \item \textbf{TCP/IP (Transmission Control Protocol/Internet Protocol)}: Es el núcleo de Internet y la mayoría de las redes locales. Sin TCP/IP, la comunicación entre dispositivos sería prácticamente imposible.
+    
+    \item \textbf{HTTP/HTTPS (HyperText Transfer Protocol / Secure)}: Son esenciales para la navegación web, ya que permiten la transferencia de páginas web y recursos a través de Internet. HTTPS es crucial para garantizar la seguridad y la privacidad en las comunicaciones web.
+    
+    \item \textbf{FTP (File Transfer Protocol)}: Protocolo para la transferencia de archivos entre un cliente y un servidor.
+
+    \item \textbf{DNS (Domain Name System)}: Convierte nombres de dominio en direcciones IP que las computadoras pueden entender; Sin este protocolo, tendríamos que recordar direcciones IP numéricas en lugar de nombres de dominio (como google.com).
+
+    \item \textbf{SMTP (Simple Mail Transfer Protocol)}: Utilizado para el envío de correos electrónicos.
+\end{itemize}
+
+Los componentes clave de una red son los \textbf{dispositivos}, los \textbf{medios de transmisión}, los \textbf{protocolos de red} y los recursos que se comparten a través de estos, como un archivo por ejemplo. Existen tres tipos principales de redes, y estas se clasifican en base a su \textbf{rango de alcance}. Tenemos: 
 
 \begin{itemize}
     \item \textbf{Redes LAN (Local Area Network)}: Red local que cubre un área pequeña, como una oficina o un hogar.
@@ -43,8 +56,8 @@ Las herramientas que ofrece Packet Tracer son variadas, y las mismas serán enum
 
 \begin{itemize}
     \item \textbf{Dispositivos de Red}: Tenemos Routers, Switchers y Hubs; además, incluye dispositivos wireless, de seguridad e incluso emuladores de redes WAN.
-    \item \textbf{Dispositivos Finales}: Tenemos PCs, Laptops, Celulares, Tablets, TV, Impresoras, etc. Ademas, permite seleccionar el medio en el que trabajaremos, como una casa, ciudad, pais, etc. 
-    \item \textbf{Componentes}: Tenemos paneles, dispositivos fisicos, sensores, etc. 
+    \item \textbf{Dispositivos Finales}: Tenemos PCs, Celulares, Tablets, TV, Impresoras, etc. Además, permite seleccionar el medio en el que trabajaremos, como una casa, ciudad, país, etc. 
+    \item \textbf{Componentes}: Tenemos paneles, dispositivos físicos, sensores, etc. 
     \item \textbf{Conexiones}: Tenemos de cobre, de fibra, IoT, USB, etc.
 \end{itemize}
 
@@ -52,44 +65,36 @@ Las herramientas que ofrece Packet Tracer son variadas, y las mismas serán enum
 %-------------------------------------------------------------------%
 
 \subsection{Dispositivos finales}
-Los dispositivos finales (end devices) o "hosts" son dispositivos en la red que generan, reciben o procesan la información. Son los puntos de origen o destino del tráfico de datos en la red. Generalmente, los dispositivos finales son los que los usuarios utilizan para interactuar directamente con la red, como por ejemplo: 
+Los dispositivos finales (end devices) o "\textbf{hosts}" son dispositivos en la red que generan, reciben o procesan la información. Son los puntos de origen o destino del tráfico de datos en la red. Generalmente, los dispositivos finales son los que los usuarios utilizan para interactuar directamente con la red, como por ejemplo: 
 
 \begin{itemize}
     \item \textbf{Computadoras de Escritorio y Laptops}: Usadas para navegar por Internet, enviar correos, tele-trabajar, etc.
     \item \textbf{Teléfonos Inteligentes y Tablets}: Dispositivos móviles que permiten la conexión a la red para múltiples funciones, desde navegación web hasta aplicaciones. No entrará en el curso.
     \item \textbf{Impresoras}: Dispositivos que reciben trabajos de impresión desde otros dispositivos en la red.
     \item \textbf{Servidores}: Computadoras especializadas que proporcionan servicios a otros dispositivos en la red, como servidores web o de correo.
-    \item \textbf{Cámaras IP}: Utilizadas para la vigilancia y que envían video a través de la red. No entrará en el curso.
+    \item \textbf{Cámaras IP}: Utilizadas para la vigilancia y que envían vídeo a través de la red. No entrará en el curso.
     \item \textbf{Dispositivos IoT (Internet of Things)}: Objetos cotidianos conectados a la red, como luces inteligentes, termostatos, sensores, etc. Estos tampoco los veremos en el curso.
 \end{itemize}
     
 %-------------------------------------------------------------------%
 
 \subsection{Dispositivos de red}
-En la siguiente sección vamos a explicar y desarrollar los principales dispositivos de red que veremos en el curso y que se destacan en el software Packet Tracer. Estos son los Router, los Switcher y los Hub, y a continuación se detallara cada uno:
-
-\subsubsection{Router}
-Un router es un dispositivo que conecta diferentes redes y dirige el tráfico entre ellas. Opera principalmente en la \textbf{tercer capa de red} del modelo OSI; un router determina la mejor ruta para enviar datos entre dispositivos en diferentes redes y este es fundamental para la conexión a \textbf{internet}, ya que gestiona el tráfico entre la red local (LAN) y redes externas (WAN). Este es un componente esencial en redes tanto domésticas como empresariales. Sus características técnicas son:
-
-\begin{itemize}
-    \item Firmware: Los Routers tienen firmware complejo que puede actualizarse. Este firmware gestiona funciones críticas como el enrutamiento, NAT (Network Address Translation), DHCP, y cortafuegos. En routers avanzados, el firmware puede ser configurado y personalizado para necesidades específicas.
-    \item Módulos de Ampliación: Los Routers empresariales y de alta gama permiten la instalación de módulos de expansión. Estos pueden incluir interfaces adicionales (Ethernet, T1/E1, DSL, fibra óptica), así como módulos de seguridad (VPN, cortafuegos).
-    \item Tarjetas Disponibles: Los Routers modulares soportan una variedad de tarjetas de interfaz de red que permiten conexiones a diferentes tipos de medios (cobre, fibra, inalámbrico) y protocolos (IP, MPLS, etc.).
-\end{itemize}
-
+En la siguiente sección vamos a explicar y desarrollar los principales dispositivos de red que veremos en el curso y que se destacan en el software Packet Tracer. Estos son los \textbf{Router}, los \textbf{Switch} y los \textbf{Hub}. Sin embargo, antes debemos definir algunos conceptos mas:
+\\\\
+{\setlength{\parindent}{1pt} El \textbf{firmware} es un tipo de software especial que está incrustado directamente en el hardware de un dispositivo, especificamente en memorias ROM (Read Only Memory). Sirve para controlar y coordinar las funciones básicas del hardware y su interacción con otros componentes o sistema. Este es de bajo nivel y suele ser inmutable. Los dispositivos de red como switch y router tienen firmware que controla cómo manejan y dirigen el tráfico de datos en la red. Algunos dispositivos de red, como switches o routers, permiten \textbf{módulos de expansión} para añadir más puertos o nuevas interfaces, como conexiones de fibra óptica o redes inalámbricas. }
 
 \subsubsection{Hub}
-Un hub es un dispositivo de red básico que conecta múltiples dispositivos en una red LAN. Opera en la \textbf{primer capa física} del modelo OSI; cuando un Hub recibe un paquete de datos, lo reenvía a todos los puertos, excepto al puerto de origen. Esto genera más tráfico en la red y reduce la eficiencia, por lo que el mismo quedó obsoleto en el tiempo. Sus características técnicas son:
+Un hub es un dispositivo de red básico que conecta múltiples dispositivos en una red LAN. Opera en la \textbf{primer capa física del modelo OSI}; su función principal es retransmitir señales eléctricas a todos los puertos de la red excepto al puerto de origen, sin realizar procesamiento adicional ni tomar decisiones inteligentes sobre cómo manejar los datos. Esto genera más tráfico en la red y reduce la eficiencia, por lo que el mismo quedó obsoleto en el tiempo. Sus características técnicas son:
 
 \begin{itemize}
-    \item Firmware: Los Hubs generalmente no tienen firmware sofisticado. Su funcionalidad es básica y no requiere actualizaciones ni configuraciones avanzadas.
+    \item Firmware: Los Hubs generalmente no tienen firmware sofisticado. Su funcionalidad consiste en retransmitir los datos que recibe a todos los puertos conectados, sin analizar las direcciones MAC o IP.
     \item Módulos de Ampliación: Los Hubs no suelen tener módulos de ampliación, al contrario, estos son dispositivos simples y fijos en cuanto a funcionalidad.
     \item Tarjetas Disponibles: No utilizan tarjetas de expansión. Los Hubs vienen con un número fijo de puertos Ethernet.
 \end{itemize}
 
 
 \subsubsection{Switch}
-Un switch es un dispositivo que conecta múltiples dispositivos en una red LAN y opera en la \textbf{segunda capa de enlace de datos} del modelo OSI.; a diferencia de un Hub, un Switch envía los datos solo al dispositivo de destino correcto, lo que mejora la eficiencia y reduce el tráfico innecesario. Es muy común en redes modernas por su eficiencia y capacidad para gestionar redes más grandes y complejas. Sus características técnicas son:
+Un switch es un dispositivo que conecta múltiples dispositivos en una red LAN y opera en la \textbf{segunda capa de enlace de datos del modelo OSI}; a diferencia de un Hub, un Switch envía los datos solo al dispositivo de destino correcto, lo que mejora la eficiencia y reduce el tráfico innecesario. Es muy común en redes modernas por su eficiencia y capacidad para gestionar redes más grandes y complejas. Sus características técnicas son:
 
 \begin{itemize}
     \item Firmware: Los Switches gestionados tienen firmware que se puede actualizar. El firmware permite configuraciones avanzadas como VLANs, QoS (Calidad de Servicio), y seguridad de puertos. Los switches no gestionados tienen firmware básico que no es modificable.
@@ -97,23 +102,33 @@ Un switch es un dispositivo que conecta múltiples dispositivos en una red LAN y
     \item Tarjetas Disponibles: Los switches modulares pueden admitir tarjetas de interfaz de red (NIC) adicionales, tarjetas de fibra óptica, o tarjetas para redes específicas como ATM o FDDI.
 \end{itemize}
 
+
+\subsubsection{Router}
+Un router es un dispositivo que conecta diferentes redes y dirige el tráfico entre ellas. Opera principalmente en la \textbf{tercer capa de red del modelo OSI}; un router determina la mejor ruta para enviar datos entre dispositivos en diferentes redes y este es fundamental para la conexión a internet, ya que gestiona el tráfico entre la red local (LAN) y redes externas (WAN). Este es un componente esencial en redes tanto domésticas como empresariales. Sus características técnicas son:
+
+\begin{itemize}
+    \item Firmware: Los Routers tienen firmware complejo que puede actualizarse. Este firmware gestiona funciones críticas como el enrutamiento, NAT (Network Address Translation), DHCP, y cortafuegos. En routers avanzados, el firmware puede ser configurado y personalizado para necesidades específicas.
+    \item Módulos de Ampliación: Los Routers empresariales y de alta gama permiten la instalación de módulos de expansión. Estos pueden incluir interfaces adicionales (Ethernet, T1/E1, DSL, fibra óptica), así como módulos de seguridad (VPN, cortafuegos).
+    \item Tarjetas Disponibles: Los Routers modulares soportan una variedad de tarjetas de interfaz de red que permiten conexiones a diferentes tipos de medios (cobre, fibra, inalámbrico) y protocolos (IP, MPLS, etc.).
+\end{itemize}
+
 %-------------------------------------------------------------------%
 
 \subsection{Cableado}
-Tanto en la vida real como en el simulador Packet Tracer, el cableado es crucial para conectar los dispositivos de red y simular correctamente cómo interactúan entre sí. Cada tipo de cable tiene un propósito específico y es utilizado para conectar distintos tipos de dispositivos en función de sus necesidades de comunicación. A continuación veremos los principales tipos de cable que podemos usar en Packet Tracer y sus funcionalidades: 
+Tanto en la vida real como en el simulador Packet Tracer, el cableado es crucial para conectar los dispositivos de red. Cada tipo de cable tiene un propósito específico y es utilizado para conectar distintos tipos de dispositivos en función de sus necesidades de comunicación. A continuación veremos los principales tipos de cable que podemos usar en Packet Tracer y sus funcionalidades: 
 
 \subsubsection{Cables de Par Trenzado (Twisted Pair)}
 Existen tres tipos de cables pertenecientes a los pares trenzados: 
 \begin{itemize}
-    \item \textbf{Cobre Straight-Through} (cable directo): se usa para conectar dispositivos de diferente tipo, como un PC a un switch o un switch a un router. Es el tipo de cable más común en redes Ethernet.
-    \item \textbf{Cobre Crossover} (cable cruzado): se usa para conectar dispositivos del mismo tipo, como un switch a otro switch o un PC a otro PC. Se aplica invirtiendo el orden de los cables dentro del conector para permitir la comunicación.
-    \item \textbf{Cobre Rolled} (cable enrollado o consola): se usa para conectar un PC a la consola de administración de un router o switch. Permite la conexión a la consola de un dispositivo para realizar configuraciones iniciales o mantenimiento a través de la línea de comandos (CLI).
+    \item \textbf{Cobre Straight-Through} (cable directo): se usa para conectar dispositivos de diferente tipo, como un PC a un Switch o un Switch a un Router. Es el tipo de cable más común en redes Ethernet.
+    \item \textbf{Cobre Crossover} (cable cruzado): se usa para conectar dispositivos del mismo tipo, como un Switch a otro Switch o un PC a otro PC. Se aplica invirtiendo el orden de los cables dentro del conector para permitir la comunicación.
+    \item \textbf{Cobre Rolled} (cable enrollado o consola): se usa para conectar un PC a la consola de administración de un Router o Switch. Permite la conexión a la consola de un dispositivo para realizar configuraciones iniciales o mantenimiento a través de la línea de comandos (CLI). Esta ultima parte puede ser simulada con Packet Tracer y se puede acceder a la consola de cualquier dispositivo.
 \end{itemize}
 
 \subsubsection{Cables de Fibra Óptica}
-Existen dos tipos de cables de fibra optica: 
+Existen dos tipos de cables de fibra óptica: 
 \begin{itemize}
-    \item \textbf{Fibra Multimodo} (Multi-mode Fiber - MMF): se usa para conectar dispositivos en distancias medias, osea de hasta 2 kilometros aproximadamente; este utiliza múltiples modos de luz para transmitir datos. Puede ser usado por ejemplo de  Switch a Switch (enlaces troncales entre edificios) o Switch a Router (para conexiones de alta velocidad a corta-media distancia)
+    \item \textbf{Fibra Multimodo} (Multi-mode Fiber - MMF): se usa para conectar dispositivos en distancias medias, osea de hasta 2 kilómetros aproximadamente; este utiliza múltiples modos de luz para transmitir datos. Puede ser usado por ejemplo de  Switch a Switch (enlaces troncales entre edificios) o Switch a Router (para conexiones de alta velocidad a corta-media distancia)
     \item \textbf{Fibra Monomodo }(Single-mode Fiber - SMF): se usa para conectar dispositivos en largas distancias, como entre diferentes sedes de una empresa; utiliza un solo modo de luz para transmitir datos, permitiendo cubrir distancias más largas que la fibra multimodo, llegando hasta varios kilómetros. Puede verse en uso de Router a Router (conexiones de larga distancia) o de Switch a Switch (conexiones de alta velocidad en grandes distancias).
 \end{itemize}
 
@@ -121,14 +136,13 @@ Existen dos tipos de cables de fibra optica:
 \subsubsection{Cables de Conexión Serie (Serial Cables)}
 Existen dos tipos de cables seriales: 
 \begin{itemize}
-    \item \textbf{Serial DCE} (Data Circuit-Terminating Equipment): se usa para conectar un router a un dispositivo DTE (Data Terminal Equipment), como otro router o un CSU/DSU o para configurar enlaces WAN serie en redes donde se requieren conexiones punto a punto.
+    \item \textbf{Serial DCE} (Data Circuit-Terminating Equipment): se usa para conectar un Router a un dispositivo DTE (Data Terminal Equipment), como otro Router o un CSU/DSU o para configurar enlaces WAN serie en redes donde se requieren conexiones punto a punto.
     \item \textbf{Serial DTE} (Data Terminal Equipment): se usa para conectar dispositivos en la red para enlaces WAN seriales; es un complementario al cable DCE y se usa para establecer enlaces de comunicación serial en entornos WAN.
 \end{itemize}
 
 
 \subsubsection{Cables Inalámbricos}
-Estos cables se usan para conectar dispositivos sin cables físicos, como laptops, smartphones, y otros dispositivos Wi-Fi a un punto de acceso o router inalámbrico. En Packet Tracer, puedes establecer conexiones inalámbricas que simulan redes Wi-Fi. No se usan cables físicos, pero se simulan los enlaces de comunicación en la red inalámbrica. No abordaremos este tipo de cables en el curso.
-
+Estos cables se usan para conectar dispositivos sin cables físicos, como laptops, smartphones, y otros dispositivos Wi-Fi a un punto de acceso o Router inalámbrico. En Packet Tracer, puedes establecer conexiones inalámbricas que simulan redes Wi-Fi. No se usan cables físicos, pero se simulan los enlaces de comunicación en la red inalámbrica. No abordaremos este tipo de cables en el curso.
 
 \subsubsection{Cables Coaxiales}
 Estos son menos comunes en redes modernas, sin embargo los cables coaxiales se usan en algunas redes específicas como en servicios de televisión por cable o redes antiguas. Funcionan a través de la transmisión de señales eléctricas, que a su vez viajan a través de un conductor central rodeado por un aislante y un blindaje conductor. Puede ser encontrado en conexiones de red antiguas como conexiones de TV por cable.
@@ -139,18 +153,20 @@ También es preciso mencionar que existen cables modernos como el USB, que permi
 \newpage
 %-------------------------------------------------------------------%
 
-
 \subsection{Actividad Practica y Visual }
-En esta sección voy a mostrar como realicé mi primer ejercicio con Packet Tracer, en el cual conecte dos \textbf{computadoras} domesticas mediante un \textbf{cable de cobre cruzado}.
+En esta sección voy a mostrar como realicé mi primer ejercicio con Packet Tracer, en el cual conecte dos \textbf{computadoras} domesticas mediante un \textbf{cable de cobre cruzado} (punteado):
 
 \includegraphics[width=0.75\linewidth]{pcsconectadas1.PNG}
 
-La presente imagen es un screen del software Packet Tracer, donde pude simular el comportamiento de dos computadoras domesticas interconectadas. Primero, en el apartado de dispositivos finales, seleccione dos computadoras genéricas y a las mismas les di un IP distinto. Después, realice la conexión mediante el cable indicado para la labor, el cual fue el cable de cobre cruzado. Por ultimo, mediante un script, probé a enviar 4 paquetes a través de las computadoras, desde la PC0 hacia la PC1, y esta ultima los recibió sin problemas.
+{\setlength{\parindent}{1pt} Vemos una imagen del software Packet Tracer, donde pude simular el comportamiento de dos computadoras domesticas interconectadas. Primero, en el apartado de dispositivos finales, seleccioné dos computadoras genéricas y las ubique en la plantilla. \\ 
+
+Desde la PC0, entre a su configuración con doble click y pude ver que opciones ofrecía el simulador. Dentro de estas, pude encontrar una consola con la cual puedo configurar el dispositivo y enviar paquetes a través de scripts (Desktop / Command Prompt); pude configurar las direcciones lógicas de cada uno  (Dirección de IPv4 y su DNS Server) manualmente (Config / FastEthernet0); e incluso pude customizar los puertos físicos del dispositivo. 
+Mediante la consola, también pude ver las especificaciones del dispositivo con \textit{ipconfig}. Después, realice la conexión mediante el cable indicado para los tipos de dispositivos finales, el cual fue el cable de cobre cruzado. Por ultimo, mediante un script, probé a enviar 4 paquetes a través de las computadoras, desde la PC0 hacia la PC1, y esta ultima los recibió sin problemas (comando \textit{ping 192.168.0.1}, osea, la IP del dispositivo receptor). }
 
 %-------------------------------------------------------------------%
 
 \subsection{Bibliografía}
-En esta última sección se detallarán las fuentes de los recursos y teoría utilizados para el desarrollo de este trabajo práctico. La resolución del mismo es un sintetizado de la lectura y entendimiento de toda la información hecho por el alumno. Al final adjunto el link a mi GitHub personal con el repositorio de la materia Redes I y el codigo fuente de este documento.
+En esta última sección se detallarán las fuentes de los recursos y teoría utilizados para el desarrollo de este trabajo práctico. La resolución del mismo es un sintetizado de la lectura y entendimiento de toda la información hecho por el alumno. Al final adjunto el link a mi GitHub personal con el repositorio de la materia Redes I y el código fuente de este documento.
 \begin{itemize}
     \item Stallings / Comunicaciones y Redes de Computadores (7ma Ed.) / Parte I / Capítulos 1 y 2.
     \item \url{https://www.geeksforgeeks.org/basics-computer-networking/?ref=gcse_ind}.
