@@ -1,2 +1,2 @@
 # Redes-de-las-Computadoras-I
-En este repositorio subiré mis trabajos prácticos para Redes I. 
+Trabajos prácticos para Redes I - laboratorios de Packet Tracer. 
